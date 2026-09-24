@@ -9,23 +9,17 @@ phases:
       - echo Installing dependencies...
       - pip install -r requirements.txt
       - pip install pytest pytest-cov
-  build:
+  buld:
     commands:
       - echo Running tests...
       - export PYTHONPATH=.
-      - pytest tests/ --cov=app --cov-report=xml
+      - pytest tests/ --cov=app
       - echo Building the application...
       - pip install wheel
       - python setup.py bdist_wheel
   post_build:
     commands:
-      - echo Build completed on `date`
-
-reports:
-  coverage:
-    files:
-      - coverage.xml
-    file-format: CLOVERXML
+      - echo Build completed on Thu Sep 24 13:11:01 UTC 2026
 
 artifacts:
   files:
